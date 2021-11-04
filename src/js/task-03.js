@@ -16,19 +16,28 @@ const images = [
 const list = document.querySelector(".gallery")
 list.classList.add("flexbox");
 
-// варіант 1
 
-const imageList = (images) => {
-
-  for (const image of images) {
-    list.insertAdjacentHTML("beforeend", `<li class="flexbox-item"><image src=${image.url} alt=${image.alt} class="flexbox-image"></li>`);
-  }
-
+// варіант 1, згідно з ТЗ
+const makeImageItem = ({url, alt}) => {
+  return `<li class="flexbox-item"><image src=${url} alt=${alt} class="flexbox-image"></li>`;
 }
 
-imageList(images);
+list.insertAdjacentHTML("beforeend", images.map(makeImageItem))
+
+
 
 // варіант 2
+
+// const imageList = (images) => {
+//   for (const image of images) {
+//     list.insertAdjacentHTML("beforeend", `<li class="flexbox-item"><image src=${image.url} alt=${image.alt} class="flexbox-image"></li>`);
+//   }
+// }
+
+// imageList(images);
+
+
+// варіант 3
 
 // let imageItem;
 // let listItem;
